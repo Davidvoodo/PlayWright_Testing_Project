@@ -8,21 +8,33 @@ exports.LoginPage = class LoginPage {
         this.login_Button = page.locator('[id="login-button"]')
 
 
+        this.Open_Menu = page.locator('[id="react-burger-menu-btn"]')
+        this.Logout_Button = page.locator('[id="logout_sidebar_link"]')
+
+
     }
 
-    async goToLoginPageURL(){
+    async goToLoginPageURL() {
 
         await this.page.goto('https://www.saucedemo.com/');
     }
 
 
-     async fullLogin(username, password){
+    async fullLogin(username, password) {
 
-         await this.userName_TextBox.fill(username);
-         await this.password_TextBox.fill(password);
-         await this.login_Button.click(); 
+        await this.userName_TextBox.fill(username);
+        await this.password_TextBox.fill(password);
+        await this.login_Button.click();
 
-     }
+    }
+
+    async fullLogOut() {
+        await this.Open_Menu.click();
+        await this.Logout_Button.click();
+
+
+
+    }
 
 
 }
